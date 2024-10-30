@@ -1,7 +1,5 @@
-streamlit
-tensorflow
-cvzone
-mediapipe
-opencv-python
-numpy
-pandas
+streamlit==1.39.0
+tensorflow==2.18.0
+opencv-python-headless==4.10.0.84
+mediapipe==0.10.15
+numpy==1.26.4
