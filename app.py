@@ -87,10 +87,14 @@ if start_button:
             # Prediction logic
             keypoints = extract_keypoints(results)
             sequence.append(keypoints)
-            sequence = sequence[-30:]
+            sequence = sequence[-30:]  # Keep only the last 30 frames
 
             if len(sequence) == 30:
-                res = model.predict(np.expand_dims(sequence, axis=0))[0]
+                # Reshape sequence to match `time_major=True` expectation
+                time_major_sequence = np.expand_dims(sequence, axis=1)  # Shape (30, 1, 1662)
+                
+                # Predict with reshaped sequence
+                res = model.predict(time_major_sequence)[0]
                 predictions.append(np.argmax(res))
 
                 if np.unique(predictions[-10:])[0] == np.argmax(res):
