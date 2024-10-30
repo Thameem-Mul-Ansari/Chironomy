@@ -40,7 +40,7 @@ Make sure you have the following installed on your machine:
 
 2. **Install the dependencies:**
    ```bash
-  pip install -r requirements.txt
+   pip install -r requirements.txt
 
 3. **Run the application:**
   ```bash
